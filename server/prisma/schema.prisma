@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// criar uma migration: yarn prisma migrate dev
+model Person {
+  id       String    @id @default(uuid())
+  nome     String
+  anoNasc  DateTime
+  idade    Int
+  altura   Float
+  peso     Float
+  salario  Float
+  password String
+  type     String    @default("J") @db.Char(1)
+  Jogador  Jogador[]
+  Tecnico  Tecnico[]
+
+  @@map("pessoa")
+}
+
+model Tecnico {
+  id              String @id @default(uuid())
+  apelido         String
+  anosExperiencia Int
+  tempoContrato   Int
+  id_pessoa       Person @relation(fields: [personId], references: [id])
+  personId        String
+
+  @@map("tecnico")
+}
+
+model Jogador {
+  id             String @id @default(uuid())
+  nomeCamisa     String
+  posicaoJoga    String
+  numGolCarreira Int
+  id_pessoa      Person @relation(fields: [personId], references: [id])
+  personId       String
+
+  @@map("jogador")
+}
