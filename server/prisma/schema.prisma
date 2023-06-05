@@ -13,6 +13,7 @@ datasource db {
 // criar uma migration: yarn prisma migrate dev
 model Person {
   id       String    @id @default(uuid())
+  username String    @unique
   nome     String
   anoNasc  DateTime
   idade    Int
@@ -20,7 +21,7 @@ model Person {
   peso     Float
   salario  Float
   password String
-  type     String    @default("J") @db.Char(1)
+  type     String     @db.Char(1)
   Jogador  Jogador[]
   Tecnico  Tecnico[]
 

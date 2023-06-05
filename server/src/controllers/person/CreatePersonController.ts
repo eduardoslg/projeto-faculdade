@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 
 import { CreatePersonService } from '../../services/person/CreatePersonService'
 
-class CreateUserController {
+class CreatePersonController {
   async execute(req: Request, res: Response) {
     const newPerson = req.body
 
@@ -13,4 +13,4 @@ class CreateUserController {
   }
 }
 
-export { CreateUserController }
+export { CreatePersonController }
