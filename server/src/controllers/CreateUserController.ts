@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-import { CreateUserModel } from '../services/CreateUserModel'
+import { CreateUserModel } from '../models/CreateUserModel'
 
 class CreateUserController {
   async execute(req: Request, res: Response) {

@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
 
-import { GetCoachsService } from '../../services/person/GetCoachsService'
+import { GetCoachsModel } from '../../models/person/GetCoachsModel'
 
 class GetCoachsController {
   async execute(req: Request, res: Response) {
-    const getCoachsService = new GetCoachsService()
+    const getCoachsModel = new GetCoachsModel()
 
-    const person = await getCoachsService.execute()
+    const person = await getCoachsModel.execute()
     return res.json(person)
   }
 }

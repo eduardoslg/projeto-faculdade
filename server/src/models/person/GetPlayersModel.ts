@@ -1,6 +1,6 @@
 import prismaClient from '../../prisma'
 
-class GetPlayersService {
+class GetPlayersModel {
   async execute() {
     const coach = await prismaClient.person.findMany({
       where: {
@@ -15,4 +15,4 @@ class GetPlayersService {
   }
 }
 
-export { GetPlayersService }
+export { GetPlayersModel }

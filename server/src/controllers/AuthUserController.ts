@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-import { AuthUserModel } from '../services/AuthUserModel'
+import { AuthUserModel } from '../models/AuthUserModel'
 
 class AuthUserController {
   async execute(req: Request, res: Response) {

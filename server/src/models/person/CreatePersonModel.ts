@@ -27,7 +27,7 @@ interface Person {
   tecnico?: Tecnico | null
 }
 
-class CreatePersonService {
+class CreatePersonModel {
   async execute(person: Person) {
     if (!person.nome) {
       throw new Error('Nome é necessário.')
@@ -118,4 +118,4 @@ class CreatePersonService {
   }
 }
 
-export { CreatePersonService }
+export { CreatePersonModel }
